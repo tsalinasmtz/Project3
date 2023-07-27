@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.plot.ly/plotly-2.24.1.min.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="static/style.css">
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <style>
+        .image-container {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .image-container img {
+            width: 200px; /* Adjust the width as needed */
+            height: auto;
+        }
+
+        h1 {
+            font-size: 32px;
+        }
+
+        p.title {
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="font-size: 36px;">MEXICO´S POPULATION ANALYSIS</h1>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#btn").click(function(){
+                var paragraph = $("p");
+                if (paragraph.is(":visible")) {
+                    paragraph.hide();
+                } else {
+                    paragraph.show();
+                }
+            });  
+        });
+    </script>
+    <!-- We decided to add a button to remove all text and show only plots / visualizations-->
+
+    <p>To show only visualizations click on this button</p>
+    <button id="btn">Show/hide</button>
+
+    <!-- We decided to add a button to refresh page and see all states again-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#btn-refresh").click(function(){
+                location.reload();
+            });  
+        });
+    </script>
+    
+    <p>To see all States click on this button.</p>
+    <button id="btn-refresh">All States</button>
+
+    <p class="title">POPULATION PER STATE</p>
+    <p>Please select any State to visualize</p>
+    <select id="my-dropdown">
+    </select>
+    
+      <!-- Plot 1 added to index-->
+    <div id="plot"></div>
+    <p>This graphic shows the total population for all Mexico's States, Mexico State is the most populated state with almost 17 million persons living there, and Colima is the State with less population since only have 731K people living there.</p>
+    
+    <!-- Plot 2 added to index-->
+    <p class="title">POPULATION WITHOUT ACCESS TO MEDICAL SERVICES</p> 
+    <div id="plot2"></div>
+    <p>26.3% of the country's population is not affiliated with any type of health service, neither public nor private.</p>
+
+    <!-- We added Mexico flag image-->
+    <div class="image-container">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/f/fc/Flag_of_Mexico.svg" alt="Web Image">
+    </div>
+
+    <p class="title">POPULATION WITH 12 TO 14 YEARS OLD NOT ASSISTING TO SCHOOL</p> 
+
+    <!-- We decided to add checkboxes for plot 3-->
+    <div id="my-checkboxes">
+    </div>
+    <div id="plot3"></div>
+    <p>Population between 12 and 14 years old not assisting school per State, Chiapas is the State with higher porcentage of population not assisting to School with 18%.</p>
+     
+    <script src="static/logic.js"></script>
+</body>
+</html>
